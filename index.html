@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Naive Bayes Spam Classifier – an interactive AI exhibit demonstrating Bayesian probabilistic text classification." />
+  <title>SpamSense AI – Naive Bayes Classifier Exhibit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════  HERO HEADER  ══════════════════════════════ -->
+  <header class="hero" id="hero">
+    <div class="hero-bg-grid"></div>
+    <nav class="nav">
+      <div class="nav-brand">
+        <span class="brand-icon">🧠</span>
+        <span class="brand-text">SpamSense <span class="brand-accent">AI</span></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#what-is">How It Works</a></li>
+        <li><a href="#demo">Live Demo</a></li>
+        <li><a href="#math">The Math</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <div class="badge">✦ Machine Learning Exhibit</div>
+      <h1 class="hero-title">
+        Naive Bayes<br />
+        <span class="gradient-text">Spam Classifier</span>
+      </h1>
+      <p class="hero-sub">
+        A self-built probabilistic AI that reads your message and decides:<br />
+        <em>spam</em> or <em>legitimate</em> — in milliseconds.
+      </p>
+      <div class="hero-cta">
+        <a href="#demo" class="btn btn-primary">Try Live Demo</a>
+        <a href="#what-is" class="btn btn-ghost">Learn How ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">80</span><span class="stat-label">Training Messages</span></div>
+        <div class="stat"><span class="stat-num">~90%</span><span class="stat-label">Accuracy</span></div>
+        <div class="stat"><span class="stat-num">Bayes</span><span class="stat-label">Algorithm</span></div>
+        <div class="stat"><span class="stat-num">Pure&nbsp;Python</span><span class="stat-label">No Libraries</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════  WHAT IS  ══════════════════════════════ -->
+  <section class="section" id="what-is">
+    <div class="container">
+      <div class="section-label">01 / The Concept</div>
+      <h2 class="section-title">What is a Naive Bayes Classifier?</h2>
+
+      <div class="cards-row">
+        <div class="info-card">
+          <div class="card-icon">📊</div>
+          <h3>Probability at its Core</h3>
+          <p>
+            Naive Bayes is a <strong>probabilistic machine learning algorithm</strong>
+            rooted in Bayes' Theorem. Instead of drawing a line between data points,
+            it asks: <em>"Given the words in this message, how likely is it to be spam?"</em>
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">📚</div>
+          <h3>Learns from Examples</h3>
+          <p>
+            The model trains on <strong>labelled messages</strong> (spam vs. ham) and
+            builds a vocabulary frequency table. Words like "win", "free", and "prize"
+            appear overwhelmingly more in spam — the model captures that pattern.
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">⚡</div>
+          <h3>Why "Naive"?</h3>
+          <p>
+            It assumes each word in the message is <strong>conditionally independent</strong>
+            of the others — a simplification that is rarely true in real English, but works
+            surprisingly well in practice for text classification tasks.
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="card-icon">🛡️</div>
+          <h3>Laplace Smoothing</h3>
+          <p>
+            When a word in the test message never appeared during training, a raw
+            probability of 0 would break everything. We add <strong>+1</strong> to every
+            word count (Laplace / add-one smoothing), ensuring no word is impossible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  PIPELINE  ════════════════════════════ -->
+  <section class="section section-dark" id="pipeline">
+    <div class="container">
+      <div class="section-label">02 / Architecture</div>
+      <h2 class="section-title">How the Code is Structured</h2>
+
+      <div class="pipeline">
+        <div class="pipe-step" data-step="1">
+          <div class="pipe-icon">📂</div>
+          <div class="pipe-info">
+            <div class="pipe-file">data/dataset.txt</div>
+            <div class="pipe-desc">80 pipe-delimited (label|message) training examples</div>
+          </div>
+          <div class="pipe-arrow">→</div>
+        </div>
+        <div class="pipe-step" data-step="2">
+          <div class="pipe-icon">🔧</div>
+          <div class="pipe-info">
+            <div class="pipe-file">SRC/preprocess.py</div>
+            <div class="pipe-desc">Lowercase, strip punctuation, tokenise into words</div>
+          </div>
+          <div class="pipe-arrow">→</div>
+        </div>
+        <div class="pipe-step" data-step="3">
+          <div class="pipe-icon">🎓</div>
+          <div class="pipe-info">
+            <div class="pipe-file">SRC/train.py</div>
+            <div class="pipe-desc">Build word-frequency tables for spam and ham</div>
+          </div>
+          <div class="pipe-arrow">→</div>
+        </div>
+        <div class="pipe-step" data-step="4">
+          <div class="pipe-icon">🔮</div>
+          <div class="pipe-info">
+            <div class="pipe-file">SRC/predict.py</div>
+            <div class="pipe-desc">Compute log-probabilities and return winning class</div>
+          </div>
+          <div class="pipe-arrow">→</div>
+        </div>
+        <div class="pipe-step" data-step="5">
+          <div class="pipe-icon">✅</div>
+          <div class="pipe-info">
+            <div class="pipe-file">accuracy.py</div>
+            <div class="pipe-desc">Evaluate model on hold-out set, print confusion matrix</div>
+          </div>
+          <div class="pipe-arrow last-arrow">🏁</div>
+        </div>
+      </div>
+
+      <!-- File structure tree -->
+      <div class="code-block">
+        <div class="code-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="code-title">Project Structure</span>
+        </div>
+        <pre class="code-content"><span class="c-dir">spam_bayesian_classify/</span>
+├── <span class="c-file">main.py</span>          <span class="c-comment"># Entry point – load, split, train, evaluate, interact</span>
+├── <span class="c-file">accuracy.py</span>      <span class="c-comment"># File-based accuracy evaluator</span>
+├── <span class="c-dir">data/</span>
+│   └── <span class="c-file">dataset.txt</span>  <span class="c-comment"># 80 labelled messages  (spam|ham)</span>
+└── <span class="c-dir">SRC/</span>
+    ├── <span class="c-file">__init__.py</span>  <span class="c-comment"># Marks SRC as a Python package</span>
+    ├── <span class="c-file">preprocess.py</span><span class="c-comment"># Text cleaner &amp; tokeniser</span>
+    ├── <span class="c-file">train.py</span>     <span class="c-comment"># NaiveBayes class + load_data() helper</span>
+    └── <span class="c-file">predict.py</span>   <span class="c-comment"># Bayesian inference – returns "spam" or "ham"</span></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  LIVE DEMO  ════════════════════════════ -->
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="section-label">03 / Interactive Demo</div>
+      <h2 class="section-title">Try the Classifier</h2>
+      <p class="section-sub">Type any message below and see the classifier decide in real time.</p>
+
+      <div class="demo-box">
+        <div class="demo-inner">
+          <textarea
+            id="msgInput"
+            class="msg-input"
+            placeholder="Type a message... e.g. 'Congratulations! You have won a free prize!' or 'Hey, are you free for lunch?'"
+            rows="4"
+          ></textarea>
+          <div class="demo-controls">
+            <button class="btn btn-primary" id="classifyBtn" onclick="classify()">
+              <span class="btn-icon">🔍</span> Classify Message
+            </button>
+            <button class="btn btn-ghost" onclick="loadExample()">Load Sample</button>
+          </div>
+
+          <div class="result-area" id="resultArea">
+            <div class="result-placeholder">
+              <span class="result-placeholder-icon">💬</span>
+              <span>Your result will appear here</span>
+            </div>
+          </div>
+
+          <!-- Word highlight panel -->
+          <div id="wordPanel" class="word-panel hidden">
+            <div class="word-panel-title">🔬 Word Analysis</div>
+            <div id="wordList" class="word-list"></div>
+          </div>
+        </div>
+
+        <!-- Quick sample buttons -->
+        <div class="sample-msgs">
+          <div class="sample-label">Quick tests →</div>
+          <button class="sample-btn spam-sample" onclick="setMsg('Congratulations you have won a free cash reward click now')">Spam Sample 1</button>
+          <button class="sample-btn spam-sample" onclick="setMsg('Limited time offer act fast to claim your prize')">Spam Sample 2</button>
+          <button class="sample-btn ham-sample" onclick="setMsg('Hey are you free for lunch tomorrow')">Ham Sample 1</button>
+          <button class="sample-btn ham-sample" onclick="setMsg('Can you send me the notes from class today')">Ham Sample 2</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  THE MATH  ════════════════════════════ -->
+  <section class="section section-dark" id="math">
+    <div class="container">
+      <div class="section-label">04 / The Mathematics</div>
+      <h2 class="section-title">Bayes' Theorem Explained</h2>
+
+      <div class="math-grid">
+        <div class="math-card">
+          <div class="math-label">Bayes' Theorem</div>
+          <div class="math-formula">
+            P(Spam | Words) ∝ P(Spam) × ∏ P(wᵢ | Spam)
+          </div>
+          <p class="math-explain">
+            The probability that a message is spam, given its words, is proportional to
+            the <strong>prior probability</strong> of spam multiplied by the product of
+            the likelihood of each word appearing in a spam message.
+          </p>
+        </div>
+
+        <div class="math-card">
+          <div class="math-label">Log Probability (used in code)</div>
+          <div class="math-formula">
+            log P(Spam|W) = log P(Spam) + Σ log P(wᵢ|Spam)
+          </div>
+          <p class="math-explain">
+            We use <strong>logarithms</strong> instead of multiplication because multiplying
+            thousands of tiny probabilities causes underflow (becomes 0). Summing logs avoids
+            this numerical stability issue.
+          </p>
+        </div>
+
+        <div class="math-card">
+          <div class="math-label">Laplace Smoothing</div>
+          <div class="math-formula">
+            P(wᵢ | spam) = (count(wᵢ in spam) + 1) / (total spam words + |vocab|)
+          </div>
+          <p class="math-explain">
+            Adding <strong>+1</strong> to every word count ensures that a word never seen in
+            training does not produce log(0) = −∞, which would destroy the entire calculation.
+          </p>
+        </div>
+
+        <div class="math-card">
+          <div class="math-label">Decision Rule</div>
+          <div class="math-formula">
+            class = argmax{ log P(Spam|W), log P(Ham|W) }
+          </div>
+          <p class="math-explain">
+            We compute the log-probability for <em>both</em> classes and simply return
+            whichever is higher — no threshold needed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════  BUGS FIXED SECTION  ══════════════════════ -->
+  <section class="section" id="bugs">
+    <div class="container">
+      <div class="section-label">05 / Quality</div>
+      <h2 class="section-title">Bugs Found &amp; Fixed</h2>
+
+      <div class="bugs-list">
+        <div class="bug-item fixed">
+          <div class="bug-badge">FIXED</div>
+          <div class="bug-info">
+            <div class="bug-file">SRC/train.py</div>
+            <div class="bug-title"><code>train_from_list()</code> was a standalone function, not a class method</div>
+            <div class="bug-desc">Missing indentation caused it to be defined at module scope — calling <code>model.train_from_list()</code> raised <code>AttributeError</code>. Moved inside <code>NaiveBayes</code> class.</div>
+          </div>
+        </div>
+        <div class="bug-item fixed">
+          <div class="bug-badge">FIXED</div>
+          <div class="bug-info">
+            <div class="bug-file">accuracy.py</div>
+            <div class="bug-title">Loop body was completely empty — <code>ZeroDivisionError</code> guaranteed</div>
+            <div class="bug-desc"><code>correct</code> and <code>total</code> were never incremented inside the loop. The function always crashed at the division step. Added the missing unpack + predict + count logic.</div>
+          </div>
+        </div>
+        <div class="bug-item fixed">
+          <div class="bug-badge">FIXED</div>
+          <div class="bug-info">
+            <div class="bug-file">SRC/predict.py</div>
+            <div class="bug-title">Denominator recomputed every word — O(V) per word</div>
+            <div class="bug-desc"><code>sum(model.spam_words.values())</code> was called inside the word loop. Cached it before the loop for O(1) per word.</div>
+          </div>
+        </div>
+        <div class="bug-item fixed">
+          <div class="bug-badge">FIXED</div>
+          <div class="bug-info">
+            <div class="bug-file">SRC/predict.py</div>
+            <div class="bug-title">No guard for untrained model — <code>ZeroDivisionError</code></div>
+            <div class="bug-desc">If <code>total_messages == 0</code>, computing <code>log(0/0)</code> raises an exception. Added an early return of <code>"unknown"</code>.</div>
+          </div>
+        </div>
+        <div class="bug-item fixed">
+          <div class="bug-badge">FIXED</div>
+          <div class="bug-info">
+            <div class="bug-file">SRC/train.py</div>
+            <div class="bug-title"><code>import random</code> placed mid-file after class definition</div>
+            <div class="bug-desc">Standard-library imports must appear at the top of the file per PEP 8 and for clarity. Moved to file header.</div>
+          </div>
+        </div>
+        <div class="bug-item fixed">
+          <div class="bug-badge">FIXED</div>
+          <div class="bug-info">
+            <div class="bug-file">main.py</div>
+            <div class="bug-title">Import used lowercase <code>src</code> but folder is named <code>SRC</code></div>
+            <div class="bug-desc">On case-sensitive file systems (Linux / macOS) this raises <code>ModuleNotFoundError</code>. Standardised all imports to <code>SRC</code>.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  ABOUT  ════════════════════════════════ -->
+  <section class="section section-dark" id="about">
+    <div class="container">
+      <div class="section-label">06 / About</div>
+      <h2 class="section-title">About This Project</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            This project is a <strong>from-scratch implementation</strong> of the Naive Bayes
+            text classifier — no scikit-learn, no NLTK, no external ML libraries. Every
+            element of the algorithm, from the preprocessing pipeline to the Laplace-smoothed
+            Bayesian inference, was written in <strong>pure Python</strong>.
+          </p>
+          <p>
+            The model trains on a custom dataset of 80 messages, split 80/20 into training and
+            test sets. Despite its simplicity, it achieves <strong>~90 % accuracy</strong> —
+            demonstrating how effective probabilistic methods are for text classification.
+          </p>
+          <p>
+            This is an ideal exhibit for understanding the foundations of Natural Language
+            Processing (NLP) and machine learning without the black-box abstraction of
+            high-level frameworks.
+          </p>
+        </div>
+        <div class="tech-stack">
+          <div class="tech-title">Tech Stack</div>
+          <div class="tech-item"><span class="tech-icon">🐍</span> Python 3.x</div>
+          <div class="tech-item"><span class="tech-icon">📦</span> collections.defaultdict</div>
+          <div class="tech-item"><span class="tech-icon">🔢</span> math.log (log-probabilities)</div>
+          <div class="tech-item"><span class="tech-icon">🔤</span> re (regex preprocessing)</div>
+          <div class="tech-item"><span class="tech-icon">🎲</span> random (dataset shuffling)</div>
+          <div class="tech-item"><span class="tech-icon">🌐</span> HTML + CSS + JS (this exhibit)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════  FOOTER  ════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="brand-icon">🧠</span>
+      <span>SpamSense AI — Naive Bayes Spam Classifier Exhibit</span>
+      <span class="footer-sep">·</span>
+      <span>Built with Pure Python &amp; HTML</span>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

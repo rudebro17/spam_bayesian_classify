@@ -13,19 +13,69 @@ spam|Get a loan approved instantly
 spam|Lowest price guaranteed click now
 spam|You are a lucky winner
 spam|Double your income in a week
+spam|Buy now and save big
+spam|You won a free gift card today
+spam|Act fast to claim your bonus cash
+spam|Huge discount apply now
+spam|Special promotion only for you
+spam|Free trial no credit card required
+spam|Make money fast guaranteed results
+spam|Call now to claim your reward
+spam|Congratulations your prize is ready
+spam|Investment opportunity returns guaranteed
+spam|You have been pre selected for a reward
+spam|Earn passive income from home
+spam|Risk free money back guarantee
+spam|Your account has been flagged click to verify
+spam|Dear winner please provide your details
+spam|Buy pills online at low cost
+spam|You qualified for our special credit offer
+spam|Instant cash advance approved
+spam|Million dollar opportunity waiting for you
+spam|Order now and get free shipping
+spam|Click the link to claim your refund
+spam|Hot singles in your area tonight
+spam|Claim your complimentary gift now
+spam|You have unused reward points click here
+spam|Huge profits await you
 
 ham|Hey are we meeting today
 ham|Call me when you are free
-ham|Let's go for lunch tomorrow
+ham|Lets go for lunch tomorrow
 ham|Did you complete the assignment
 ham|I will reach by 5 pm
 ham|Can you send me the notes
-ham|Let's study together for exams
+ham|Lets study together for exams
 ham|Where are you right now
-ham|Don't forget the meeting at 3
+ham|Dont forget the meeting at 3
 ham|I will call you later
 ham|Are you coming to the party
 ham|Please review the document
-ham|Let's catch up this weekend
+ham|Lets catch up this weekend
 ham|Meeting has been rescheduled
 ham|See you in class tomorrow
+ham|Did you finish the homework
+ham|What time is the train
+ham|Can we reschedule for tomorrow
+ham|I sent you the report
+ham|Please check your email
+ham|Can you bring the charger
+ham|Let me know when you arrive
+ham|How was your day
+ham|Are you free on Saturday
+ham|I will pick you up at noon
+ham|Thanks for your help yesterday
+ham|Please confirm attendance
+ham|Did you get my message
+ham|See you at the airport
+ham|Happy birthday have a great day
+ham|Reminder to submit the form by Friday
+ham|I need your feedback on this draft
+ham|Lunch is ready come downstairs
+ham|Good morning how are you
+ham|I am running a bit late
+ham|Can you help me with this problem
+ham|Should we order pizza or cook dinner
+ham|Do you want to go for a walk
+ham|Let me know your availability this week
+ham|I will be there in ten minutes
